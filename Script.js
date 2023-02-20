@@ -12,7 +12,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 const Connect = () => {
-  // console.log(bool, "Start")
   const data =
     document &&
     document?.getElementsByClassName(

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", RunScript);
 function RunScript() {
-  console.log("HTML Connected");
   let start = false;
   let btn = document?.getElementById("btn").addEventListener("click", () => {
     let count = 5,
