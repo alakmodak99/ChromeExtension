@@ -8,7 +8,14 @@
     "48": "./Icons/linkedin-icon-48.png",
     "128": "./Icons/linkedin-icon-128.png"
   },
-  "permissions": ["offscreen", "tabs", "activeTab", "storage", "scripting"],
+  "permissions": [
+    "offscreen",
+    "tabs",
+    "activeTab",
+    "storage",
+    "scripting",
+    "management"
+  ],
   "host_permissions": ["*://*/*"],
   "action": {
     "default_title": "LinkedIn Connection Request",
