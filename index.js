@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", RunScript);
 function RanDomNumer(min, max) {
   return Math.floor(min + Math.random() * (max - min + 1));
 }
+let A={},n=1;
 function RunScript() {
   let random = RanDomNumer(6, 9);
   let start = false;
@@ -21,15 +22,21 @@ function RunScript() {
     popup(start, random);
   });
   chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    document.getElementById("count").innerText = Math.ceil(msg?.count/2);
+    if (msg?.count && !A[msg?.count]) {
+      A[msg.count] =1;
+      document.getElementById("count").innerText = n++;
+    }
+    
     if(msg?.end){
-        chrome.management.onDisabled.addListener((a)=>{
-            console.log(a?.name, "disabled");
-        })
+        document.getElementById("Body").style.display="none"
+              chrome.management.onDisabled.addListener((a) => {
+                console.log(a?.name, "disabled");
+              });
     }
 
   });
 }
+
 function popup(data, num) {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     var activeTab = tabs[0];

@@ -24,16 +24,15 @@ const Connect = (event) => {
   x = setInterval(async () => {
     let key = data[i];
     if (key?.innerText == "Connect") {
-      count++;
       key?.click();
+      count++;
       await SetTimeO();
     }
     if (!event) clearInterval(x);
     i++;
     if (i == y) clearInterval(x);
-    console.log(count, "Count");
-    chrome.runtime.sendMessage({ count, end: i==y }, (res) => {});
-  }, 1700);
+    chrome.runtime.sendMessage({ count, end: i == y }, (res) => {});
+  }, 2000);
 };
 
 function SetTimeO() {
@@ -54,6 +53,6 @@ function SetTimeO() {
           "artdeco-button artdeco-button--2 artdeco-button--primary ember-view ml1"
         )?.[0]
         ?.click();
-    }, 900);
+    }, 1500);
   });
 }
