@@ -1,6 +1,5 @@
 console.log("connected");
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log("connected", request?.message, request?.start);
   let SetTimeOut;
   if (request?.message) {
     SetTimeOut = setTimeout(() => {
